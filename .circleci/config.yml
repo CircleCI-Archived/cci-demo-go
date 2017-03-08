@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: golang:1.6.2
+      - image: golang:latest # We suggest using a version tag for real projects
       - image: postgres:9.4.1
         environment:
           POSTGRES_USER: ubuntu
@@ -25,3 +25,9 @@ jobs:
             go test -v -race ./... | go-junit-report > /tmp/test-results/unit-tests.xml
       - store_test_results:
           path: /tmp/test-results
+      - run:
+          name: ""
+          command: |
+            if [ $NIGHTLY ]; then
+              echo "This is a nightly build."
+            fi
