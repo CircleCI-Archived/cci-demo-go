@@ -83,5 +83,5 @@
 			"revisionTime": "2017-01-30T11:31:45Z"
 		}
 	],
-	"rootPath": "github.com/circleci/cci-demo-docker"
+	"rootPath": "github.com/circleci/cci-demo-go"
 }

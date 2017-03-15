@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/circleci/cci-demo-docker/service"
+	"github.com/circleci/cci-demo-go/service"
 	_ "github.com/mattes/migrate/driver/postgres"
 	"github.com/mattes/migrate/migrate"
 )

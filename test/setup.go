@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/circleci/cci-demo-docker/service"
+	"github.com/circleci/cci-demo-go/service"
 	_ "github.com/mattes/migrate/driver/postgres"
 	"github.com/mattes/migrate/migrate"
 	"github.com/stretchr/testify/require"
@@ -44,11 +44,11 @@ func SetupEnv(t *testing.T) *Env {
 
 // SetupDB initializes a test database, performing all migrations.
 func SetupDB(t *testing.T) *service.Database {
-	databaseUrl := os.Getenv("DATABASE_URL")
-	require.NotEmpty(t, databaseUrl, "DATABASE_URL must be set!")
+	databaseUrl := os.Getenv("CONTACTS_DB_URL")
+	require.NotEmpty(t, databaseUrl, "CONTACTS_DB_URL must be set!")
 
 	sqlFiles := "./db/migrations"
-	if sqlFilesEnv := os.Getenv("DB_MIGRATIONS"); sqlFilesEnv != "" {
+	if sqlFilesEnv := os.Getenv("CONTACTS_DB_MIGRATIONS"); sqlFilesEnv != "" {
 		sqlFiles = sqlFilesEnv
 	}
 	allErrors, ok := migrate.ResetSync(databaseUrl, sqlFiles)
