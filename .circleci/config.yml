@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # using custom image, see .circleci/images/primary/Dockerfile
-      - image: circleci/cci-demo-go-primary:0.0.1
+      - image: circleci/cci-demo-go-primary:0.0.2
       - image: postgres:9.4.1
         environment:
           POSTGRES_USER: ubuntu
@@ -50,6 +50,18 @@ jobs:
       - run:
           name: Build service
           command: make
+
+      - run:
+          name: Start service
+          environment:
+            CONTACTS_DB_URL: "postgres://ubuntu@localhost:5432/contacts?sslmode=disable"
+            CONTACTS_DB_MIGRATIONS: /go/src/github.com/circleci/cci-demo-go/db/migrations
+          command: ./workdir/contacts
+          background: true
+
+      - run:
+          name: Validate service is working
+          command: curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:8080/contacts/test
 
       - store_artifacts:
           path: /tmp/test-results
