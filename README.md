@@ -1,4 +1,7 @@
-# CircleCI 2.0 Demo Application: Go (Golang) [![CircleCI Build Status](https://circleci.com/gh/circleci/cci-demo-go.svg?style=shield)](https://circleci.com/gh/circleci/cci-demo-go) [![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/circleci/cci-demo-react/master/LICENSE)
+# DEPRECATED. Please see: <https://github.com/CircleCI-Public/cci-demo-go> for the current demo application for Go on CircleCI 2.0
+
+
+## CircleCI 2.0 Demo Application: Go (Golang) [![CircleCI Build Status](https://circleci.com/gh/circleci/cci-demo-go.svg?style=shield)](https://circleci.com/gh/circleci/cci-demo-go) [![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/circleci/cci-demo-react/master/LICENSE)
 
 This is an example application showcasing how to run Go on CircleCI 2.0.
 
